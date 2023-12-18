@@ -24,7 +24,7 @@ const Navbar = ({ data }) => {
         <ul class="navbar-nav mr-auto">
           {data?.map((val, ind) => {
             return (
-              <li class="nav-item active">
+              <li class="nav-item active" key={ind}>
                 <Link to={`${val.path}`} class="nav-link">
                   {val.name}
                 </Link>

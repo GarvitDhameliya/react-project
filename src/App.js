@@ -9,9 +9,29 @@ import UserHome from "./components/User/Pages/Home";
 import List from "./components/Admin/Pages/List";
 import Product from "./components/User/Pages/Product";
 import Not from "./components/Atoms/Not";
+import { useEffect, useState } from "react";
 
 function App() {
   const role = "user";
+
+  const [data, setdata] = useState();
+
+  console.log(localStorage);
+
+  const arr = localStorage.getItem("data")
+    ? JSON.parse(localStorage.getItem("data"))
+    : [];
+
+  // arr.push(6);
+  localStorage.setItem("data", JSON.stringify(arr));
+
+  useEffect(() => {
+    setdata(arr);
+  }, []);
+
+  console.log(arr);
+
+  console.log(data, "data");
 
   if (role === "admin") {
     return (
